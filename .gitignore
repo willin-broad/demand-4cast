@@ -7,3 +7,4 @@ outputs/
 logs/
 .DS_Store
 *.ipynb_checkpoints
+demand_forecasting_setup.md

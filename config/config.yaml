@@ -1,0 +1,21 @@
+data:
+  raw_path: "data/raw/sales_data.csv"
+  date_column: "date"
+  target_column: "demand"
+  freq: "W"               # D=daily, W=weekly, M=monthly
+
+model:
+  arima:
+    order: [1, 1, 1]
+    seasonal_order: [1, 1, 1, 52]   # for weekly data with yearly seasonality
+  prophet:
+    yearly_seasonality: true
+    weekly_seasonality: true
+    changepoint_prior_scale: 0.05
+
+evaluation:
+  test_periods: 12         # periods to hold out for evaluation
+  metrics: [MAE, RMSE, MAPE]
+
+forecast:
+  horizon: 26              # periods ahead to forecast
